@@ -21,3 +21,8 @@ globalBucket := NewBucket(64/1, 64, now)
 // that will assure no overflow above the requested bandwidth
 limiter := LimitedReader(reader, localBucket, globalBucket)
 ```
+
+#### Update the limits on-the-fly
+```go
+bucket.UpdateLimit(32/2, 32)
+```
