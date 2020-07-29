@@ -86,10 +86,10 @@ func (b *Bucket) adjustTick(tick int64) {
 		b.tokens = b.capacity
 	}
 }
-// take applies the current tick and calculates the time required
+// Take applies the current tick and calculates the time required
 // for the provided amount of tokens to become available.
 // it requires the current moment for testing purpose
-func (b *Bucket) take(now time.Time, amount int64) time.Duration {
+func (b *Bucket) Take(now time.Time, amount int64) time.Duration {
 	if amount <= 0 {
 		return 0
 	}
