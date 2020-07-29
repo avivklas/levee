@@ -31,8 +31,8 @@ func (r *levee) Read(buf []byte) (int, error) {
 		return n, err
 	}
 	now := time.Now()
-	bucketWait := r.bucket.take(now, int64(n))
-	globalBucketWait := r.globalBucket.take(now, int64(n))
+	bucketWait := r.bucket.Take(now, int64(n))
+	globalBucketWait := r.globalBucket.Take(now, int64(n))
 	wait := math.Max(float64(bucketWait), float64(globalBucketWait))
 	time.Sleep(time.Duration(wait))
 	return n, err
